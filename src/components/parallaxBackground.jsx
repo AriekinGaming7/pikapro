@@ -56,13 +56,13 @@ const ParallaxBackground = () => {
         <motion.div
           className="absolute inset-0 z-10 will-change-transform"
           style={{
-            backgroundImage: "url(/assets/sky.jpg)",
+            backgroundImage: "url(assets/sky.jpg)",
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             filter: "brightness(0.75) contrast(1.05) saturate(1.05)",
             x: skyX,
-            scale: 1.2, // overscale to remove side/top bars
+            scale: 1.2,
           }}
         />
 
@@ -70,14 +70,14 @@ const ParallaxBackground = () => {
         <motion.div
           className="absolute inset-0 z-60 will-change-transform"
           style={{
-            backgroundImage: "url(/assets/mountain-3.png)",
+            backgroundImage: "url(assets/mountain-3.png)",
             backgroundPosition: isMobile ? "center bottom" : "680px 200px",
             backgroundSize: isMobile ? "1000px" : "1600px",
             backgroundRepeat: "no-repeat",
             filter: "brightness(0.85) contrast(1.05) saturate(1.05)",
             x: m3X,
             y: mountain3Y,
-            scale: 1.25, // overscale
+            scale: 1.25,
           }}
         />
 
@@ -85,13 +85,13 @@ const ParallaxBackground = () => {
         <motion.div
           className="absolute inset-0 z-50 will-change-transform"
           style={{
-            backgroundImage: "url(/assets/planets.png)",
+            backgroundImage: "url(assets/planets.png)",
             backgroundPosition: planetBgPos,
             backgroundSize: isMobile ? "1000px" : "1500px",
             backgroundRepeat: "no-repeat",
             filter: "brightness(0.8) contrast(1.06) saturate(1.05)",
             x: planetsX,
-            scale: 1.15, // overscale
+            scale: 1.15,
           }}
         />
 
@@ -99,14 +99,14 @@ const ParallaxBackground = () => {
         <motion.div
           className="absolute inset-0 z-40 will-change-transform"
           style={{
-            backgroundImage: "url(/assets/mountain-2.png)",
+            backgroundImage: "url(assets/mountain-2.png)",
             backgroundPosition: isMobile ? "center bottom" : "-400px -100px",
             backgroundSize: isMobile ? "900px" : "1400px",
             backgroundRepeat: "no-repeat",
             filter: "brightness(0.85) contrast(1.05) saturate(1.05)",
             x: m2X,
             y: mountain2Y,
-            scale: 1.2, // overscale
+            scale: 1.2,
           }}
         />
 
@@ -114,14 +114,14 @@ const ParallaxBackground = () => {
         <motion.div
           className="absolute inset-0 z-50 will-change-transform"
           style={{
-            backgroundImage: "url(/assets/mountain-1.png)",
+            backgroundImage: "url(assets/mountain-1.png)",
             backgroundPosition: isMobile ? "center bottom" : "0px 150px",
             backgroundSize: isMobile ? "1200px" : "2000px",
             backgroundRepeat: "no-repeat",
             filter: "brightness(0.9) contrast(1.06) saturate(1.05)",
             x: m1X,
             y: mountain1Y,
-            scale: 1.25, // overscale
+            scale: 1.25,
           }}
         />
 
