@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const LINKS = ["home", "about", "experiences", "contact"];
@@ -31,7 +32,6 @@ function Navigation({ onLinkClick = () => {} }) {
   );
 }
 
-// Pikachu button (animated sprite + phrases)
 function PikachuSprite({ isActive, toggle }) {
   const [frame, setFrame] = useState(0);
   const [animation, setAnimation] = useState("idle");
@@ -46,34 +46,18 @@ function PikachuSprite({ isActive, toggle }) {
     "Hi, I’m Pika ⚡ (your friendly zap rat)",
     "Click me or I shock you 😜",
     "Humans scroll too much… 🙄",
+    "Thunderbolt solves 99% of life’s problems ⚡",
+    "I could light up an entire rave party 🎉⚡",
     "Fun fact: My cheeks could power your phone 🔋⚡",
     "Basically a yellow mouse with WiFi signal 🐭📶",
     "Pokéball? Nah, I live rent-free here 😏",
     "Don’t touch my tail unless you like *spicy static* 🌩️",
-    "Thunderbolt solves 99% of life’s problems ⚡",
     "If cute was a crime, I’d be on the Most Wanted list 👮‍♂️",
-    "Scrolling again? Get a hobby! 😂",
-    "I could light up an entire rave party 🎉⚡",
     "Ash still hasn’t given me vacation days 😤",
-    "Powered by memes and electricity ⚡🤣",
-    "I bite. And by bite, I mean electrocute 💥",
-    "Running on 100% caffeine and lightning ☕⚡",
-    "Shockingly good vibes only ✨⚡",
-    "Peek-a-Pika! …yeah, I’m not sorry 😎",
-    "You scroll, I judge. That’s the deal 🤨",
-    "Zap first, ask questions never ⚡💛",
-    "Don’t worry, I’m house-trained… mostly 🐭",
-    "If you’re reading this, you owe me Poké-snacks 🍪",
-    "Warning: may cause spontaneous dance parties 🕺⚡",
-    "I’m like Alexa, but cuter and more dangerous 🤖⚡",
-    "Static cling? Yeah, that was me 😏",
-    "Ash chose me, so you should too 🐭⚡",
     "Battery low? Borrow my cheeks 🔋⚡",
-    "I only shock people I like… so click wisely 😏",
-    "Pokémon Center says I need therapy… nah ⚡😂",
-    "Pikachu used Thunderbolt! It’s super effective… against boredom 🎉",
-    "No one: … Me: *PIKA PIKA* 🔊",
-    "Careful, I’ve been known to fry routers 📡⚡",
+    "I bite. And by bite, I mean electrocute 💥",
+    "Zap first, ask questions never ⚡💛",
+    "Static cling? Yeah, that was me 😏",
   ];
 
   const animations = {
@@ -167,17 +151,20 @@ function PikachuSprite({ isActive, toggle }) {
   }, [anim]);
 
   return (
-    <div className="relative cursor-pointer" onClick={toggle}>
+    <div className="relative cursor-pointer">
       <AnimatePresence>
         {showText && (
           <motion.div
-            className="absolute bottom-[150%] left-1/2 -translate-x-1/2 
-                       bg-white text-black px-4 py-2 rounded-2xl shadow-lg 
-                       border border-gray-300 text-sm max-w-[180px]"
-            initial={{ opacity: 0, y: 10, scale: 0.8 }}
+            className="
+              absolute z-40 
+              bottom-[130%] left-1/2 -translate-x-1/2 
+              sm:bottom-[150%] sm:left-1/2 sm:-translate-x-1/2
+              bg-white text-black px-4 py-2 rounded-2xl shadow-lg 
+              border border-gray-300 text-sm max-w-[85vw] sm:max-w-[260px]"
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.8 }}
-            transition={{ duration: 0.3 }}
+            exit={{ opacity: 0, y: -10, scale: 0.9 }}
+            transition={{ duration: 0.25 }}
           >
             {randomText}
           </motion.div>
@@ -205,20 +192,25 @@ function ThoughtBubbleMenu({ isOpen, onClose }) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="absolute bottom-24 right-8 sm:right-40 z-40 max-w-[90vw]"
-          initial={{ opacity: 0, scale: 0.8 }}
+          className="
+            absolute z-40
+            bottom-[130px] left-1/2 -translate-x-1/2
+            sm:bottom-24 sm:left-auto sm:right-10 sm:translate-x-0
+            max-w-[90vw]"
+          initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
+          exit={{ opacity: 0, scale: 0.85 }}
           transition={{ type: "spring", stiffness: 200, damping: 18 }}
         >
           <div className="relative bg-gradient-to-br from-pink-400/70 to-blue-400/70 
-                          backdrop-blur-md border-4 border-blue-800 rounded-[50%] 
-                          p-6 sm:p-8 shadow-2xl text-center">
+                          backdrop-blur-md border-4 border-blue-800 rounded-[40px] 
+                          p-5 sm:p-8 shadow-2xl text-center">
             <Navigation onLinkClick={onClose} />
           </div>
 
-          <div className="absolute -right-5 bottom-6 w-6 h-6 rounded-full bg-gradient-to-br from-pink-300 to-blue-300 border-2 border-blue-700" />
-          <div className="absolute -right-10 bottom-2 w-4 h-4 rounded-full bg-gradient-to-br from-pink-200 to-blue-200 border-2 border-blue-700" />
+          {/* Bubbles/tail — keep inside width */}
+          <div className="absolute left-1/2 -translate-x-1/2 -bottom-5 w-6 h-6 rounded-full bg-gradient-to-br from-pink-300 to-blue-300 border-2 border-blue-700" />
+          <div className="absolute left-1/2 -translate-x-1/2 -bottom-10 w-4 h-4 rounded-full bg-gradient-to-br from-pink-200 to-blue-200 border-2 border-blue-700" />
         </motion.div>
       )}
     </AnimatePresence>
@@ -228,18 +220,28 @@ function ThoughtBubbleMenu({ isOpen, onClose }) {
 export default function PikachuNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
-      <div className="relative">
-        <PikachuSprite
-          isActive={menuOpen}
-          toggle={() => setMenuOpen((v) => !v)}
-        />
-        <ThoughtBubbleMenu
-          isOpen={menuOpen}
-          onClose={() => setMenuOpen(false)}
-        />
+  // Render into body to avoid transformed-parent issues on mobile
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
+    <div
+      className="
+        fixed z-50 
+        max-w-[100vw] pointer-events-none
+        sm:bottom-6 sm:right-6
+        bottom-4 right-4"
+      style={{
+        right: "calc(env(safe-area-inset-right, 0px) + 16px)",
+        bottom: "calc(env(safe-area-inset-bottom, 0px) + 16px)",
+      }}
+    >
+      <div className="relative pointer-events-auto origin-bottom-right scale-90 sm:scale-100">
+        <div onClick={() => setMenuOpen((v) => !v)}>
+          <PikachuSprite isActive={menuOpen} toggle={() => {}} />
+        </div>
+        <ThoughtBubbleMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
