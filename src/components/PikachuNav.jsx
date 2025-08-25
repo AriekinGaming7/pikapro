@@ -46,6 +46,11 @@ function PikachuSprite({ isActive, toggle }) {
     "Hi, I’m Pika ⚡ (your friendly zap rat)",
     "Click me or I shock you 😜",
     "Humans scroll too much… 🙄",
+    "Thunderbolt solves 99% of life’s problems ⚡",
+    "I could light up an entire rave party 🎉⚡",
+    "Hi, I’m Pika ⚡ (your friendly zap rat)",
+    "Click me or I shock you 😜",
+    "Humans scroll too much… 🙄",
     "Fun fact: My cheeks could power your phone 🔋⚡",
     "Basically a yellow mouse with WiFi signal 🐭📶",
     "Pokéball? Nah, I live rent-free here 😏",
@@ -76,10 +81,29 @@ function PikachuSprite({ isActive, toggle }) {
     "Careful, I’ve been known to fry routers 📡⚡",
   ];
 
+  // ✅ Fixed asset paths using import.meta.env.BASE_URL
   const animations = {
-    idle: { src: "/assets/idle.png", frames: 15, fps: 8, w: 128, h: 132 },
-    onclick: { src: "/assets/onclick.png", frames: 8, fps: 10, w: 131, h: 152 },
-    run: { src: "/assets/char_yellow.png", frames: 16, fps: 12, w: 128, h: 141 },
+    idle: {
+      src: `${import.meta.env.BASE_URL}assets/idle.png`,
+      frames: 15,
+      fps: 8,
+      w: 128,
+      h: 132,
+    },
+    onclick: {
+      src: `${import.meta.env.BASE_URL}assets/onclick.png`,
+      frames: 8,
+      fps: 10,
+      w: 131,
+      h: 152,
+    },
+    run: {
+      src: `${import.meta.env.BASE_URL}assets/char_yellow.png`,
+      frames: 16,
+      fps: 12,
+      w: 128,
+      h: 141,
+    },
   };
 
   // Handle click
@@ -121,11 +145,8 @@ function PikachuSprite({ isActive, toggle }) {
 
   const startPhrases = () => {
     if (idleTimer.current || phraseTimer.current) return;
-
-    // Wait exactly 5s before first phrase
     idleTimer.current = setTimeout(() => {
       showRandomPhrase();
-      // Then repeat every 8s
       phraseTimer.current = setInterval(showRandomPhrase, 8000);
       idleTimer.current = null;
     }, 5000);
@@ -142,7 +163,7 @@ function PikachuSprite({ isActive, toggle }) {
   const showRandomPhrase = () => {
     setRandomText(phrases[Math.floor(Math.random() * phrases.length)]);
     setShowText(true);
-    setTimeout(() => setShowText(false), 4000); // show for 4s
+    setTimeout(() => setShowText(false), 4000);
   };
 
   // Sprite frame update
