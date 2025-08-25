@@ -73,7 +73,7 @@ export const myProjects = [
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/Screenshot.png",
+    image: "assets/projects/Screenshot.png",
     tags: [
       {
         id: 1,
@@ -95,12 +95,12 @@ export const myProjects = [
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/game-engine.jpg",
+    image: "assets/projects/game-engine.jpg",
     tags: [
       {
         id: 1,
         name: "VALORANT",
-        path: "/assets/logos/dotnet-pink.png",
+        path: "assets/logos/dotnet-pink.png",
       },
     ],
   },
