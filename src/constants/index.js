@@ -1,3 +1,6 @@
+export { experiences };
+export { myProjects, mySocials, experiences, reviews };
+
 export const myProjects = [
   {
     id: 1,
