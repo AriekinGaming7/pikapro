@@ -1,4 +1,5 @@
-// ================== PROJECTS ==================
+// src/constants/index.js
+
 export const myProjects = [
   {
     id: 1,
@@ -7,13 +8,17 @@ export const myProjects = [
     subDescription: [
       "Primarily a Game Developer in UE5",
       "Have 3+ years of Experience in UE",
-      "Made many Games in Action RPG, Horror and open world genere"
+      "Made many Games in Action RPG, Horror and open world genere",
     ],
     href: "",
     logo: "",
     image: "/assets/projects/accessories.jpg",
     tags: [
-      { id: 1, name: "c++ Bluprints", path: "/assets/logos/ue.svg" },
+      {
+        id: 1,
+        name: "c++ Bluprints",
+        path: "/assets/logos/ue.svg",
+      },
     ],
   },
   {
@@ -26,16 +31,32 @@ export const myProjects = [
       "Experienced in creating engaging content for YouTube, Instagram, and other social platforms.",
       "Proficient in transitions, effects, animations, and advanced color grading.",
       "Ability to edit gaming, cinematic, vlog, and promotional videos with precision.",
-      "Beginner in react and tailwindCSS"
+      "Beginner in react and tailwindCSS",
     ],
     href: "",
     logo: "",
     image: "/assets/projects/auth-system.jpg",
     tags: [
-      { id: 1, name: "filmora", path: "/assets/logos/filmora.svg" },
-      { id: 2, name: "React", path: "/assets/logos/react.svg" },
-      { id: 3, name: "Premier Pro", path: "/assets/logos/pngwing.com.png" },
-      { id: 4, name: "TailwindCSS", path: "/assets/logos/tailwindcss.svg" },
+      {
+        id: 1,
+        name: "filmora",
+        path: "/assets/logos/filmora.svg",
+      },
+      {
+        id: 2,
+        name: "React",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 3,
+        name: "Premier Pro",
+        path: "/assets/logos/pngwing.com.png",
+      },
+      {
+        id: 4,
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
+      },
     ],
   },
   {
@@ -48,13 +69,17 @@ export const myProjects = [
       "Secured a position within the top 300 players on the global leaderboard.",
       "Specialized in high-level Duo ranked matches.",
       "Demonstrated mastery of advanced combat mechanics and character playstyles.",
-      "Created and shared gameplay highlights showcasing ranked achievements."
+      "Created and shared gameplay highlights showcasing ranked achievements.",
     ],
     href: "",
     logo: "",
     image: "/assets/projects/Screenshot.png",
     tags: [
-      { id: 1, name: "Naraka Bladepoint Asura", path: "/assets/logos/naraka.svg" },
+      {
+        id: 1,
+        name: "Naraka Bladepoint Asura",
+        path: "/assets/logos/naraka.svg",
+      },
     ],
   },
   {
@@ -66,13 +91,17 @@ export const myProjects = [
       "Specialized in both entry fragging and sniper roles.",
       "Strong map awareness and precise crosshair placement under pressure.",
       "Experienced in team coordination, callouts, and clutch scenarios.",
-      "Unstoppable 160edpi Precision: Valorant's Deadliest Sniper Player"
+      "Unstoppable 160edpi Precision: Valorant's Deadliest Sniper Player",
     ],
     href: "",
     logo: "",
     image: "/assets/projects/game-engine.jpg",
     tags: [
-      { id: 1, name: "VALORANT", path: "/assets/logos/dotnet-pink.png" },
+      {
+        id: 1,
+        name: "VALORANT",
+        path: "/assets/logos/dotnet-pink.png",
+      },
     ],
   },
   {
@@ -90,8 +119,16 @@ export const myProjects = [
     logo: "",
     image: "/assets/projects/wordpress-theme.jpg",
     tags: [
-      { id: 1, name: "Aimlabs", path: "/assets/logos/aimlabs.png" },
-      { id: 2, name: "Valorant", path: "/assets/logos/dotnet-pink.png" },
+      {
+        id: 1,
+        name: "Aimlabs",
+        path: "/assets/logos/aimlabs.png",
+      },
+      {
+        id: 2,
+        name: "Valorant",
+        path: "/assets/logos/dotnet-pink.png",
+      },
     ],
   },
   {
@@ -108,17 +145,24 @@ export const myProjects = [
     logo: "",
     image: "/assets/projects/elearning.png",
     tags: [
-      { id: 1, name: "Youtube", path: "/assets/logos/youtube.png" },
-      { id: 2, name: "Twitch", path: "/assets/logos/efcore.png" },
+      {
+        id: 1,
+        name: "Youtube",
+        path: "/assets/logos/youtube.png",
+      },
+      {
+        id: 2,
+        name: "Twitch",
+        path: "/assets/logos/efcore.png",
+      },
     ],
   },
 ];
 
-// ================== SOCIALS ==================
 export const mySocials = [
   {
     name: "WhatsApp",
-    href: "", // You can add wa.me/yourNumber here
+    href: "", // add wa.me/yourNumber here
     icon: "/assets/socials/whatsApp.svg",
   },
   {
@@ -133,7 +177,6 @@ export const mySocials = [
   },
 ];
 
-// ================== EXPERIENCES ==================
 export const experiences = [
   {
     title: "Gamer",
@@ -166,7 +209,6 @@ export const experiences = [
   },
 ];
 
-// ================== REVIEWS ==================
 export const reviews = [
   {
     name: "phattan",
