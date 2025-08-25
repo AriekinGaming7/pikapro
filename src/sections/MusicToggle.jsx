@@ -7,7 +7,6 @@ export default function MusicToggle() {
   const [isMuted, setIsMuted] = useState(true);       // start muted
   const audioRef = useRef(null);
 
-  // Handle play/pause
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -22,7 +21,6 @@ export default function MusicToggle() {
     }
   }, [isPlaying]);
 
-  // Handle first user interaction → unmute
   useEffect(() => {
     const handleFirstInteraction = () => {
       if (audioRef.current) {
@@ -44,22 +42,23 @@ export default function MusicToggle() {
 
   return (
     <>
-      {/* hidden audio element */}
       <audio ref={audioRef} autoPlay loop muted>
         <source src={musicFile} type="audio/mpeg" />
       </audio>
 
-      {/* floating button */}
       <button
         onClick={() => setIsPlaying(!isPlaying)}
-        className="fixed top-6 right-6 z-50 p-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:brightness-110 transition shadow-lg"
+        className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 
+                   p-3 sm:p-4 rounded-full 
+                   bg-gradient-to-r from-purple-600 to-pink-500 
+                   text-white hover:brightness-110 transition shadow-lg"
       >
         {isMuted ? (
-          <VolumeX size={20} />  // 🔇 before user interaction
+          <VolumeX size={20} />
         ) : isPlaying ? (
-          <Pause size={20} />    // ⏸️ when playing
+          <Pause size={20} />
         ) : (
-          <Music size={20} />    // 🎵 when paused
+          <Music size={20} />
         )}
       </button>
     </>

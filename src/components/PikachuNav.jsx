@@ -46,11 +46,6 @@ function PikachuSprite({ isActive, toggle }) {
     "Hi, I’m Pika ⚡ (your friendly zap rat)",
     "Click me or I shock you 😜",
     "Humans scroll too much… 🙄",
-    "Thunderbolt solves 99% of life’s problems ⚡",
-    "I could light up an entire rave party 🎉⚡",
-    "Hi, I’m Pika ⚡ (your friendly zap rat)",
-    "Click me or I shock you 😜",
-    "Humans scroll too much… 🙄",
     "Fun fact: My cheeks could power your phone 🔋⚡",
     "Basically a yellow mouse with WiFi signal 🐭📶",
     "Pokéball? Nah, I live rent-free here 😏",
@@ -81,7 +76,6 @@ function PikachuSprite({ isActive, toggle }) {
     "Careful, I’ve been known to fry routers 📡⚡",
   ];
 
-  // ✅ Fixed asset paths using import.meta.env.BASE_URL
   const animations = {
     idle: {
       src: `${import.meta.env.BASE_URL}assets/idle.png`,
@@ -106,7 +100,6 @@ function PikachuSprite({ isActive, toggle }) {
     },
   };
 
-  // Handle click
   useEffect(() => {
     if (isActive) {
       setAnimation("onclick");
@@ -116,7 +109,6 @@ function PikachuSprite({ isActive, toggle }) {
     }
   }, [isActive]);
 
-  // Handle scroll
   useEffect(() => {
     if (isActive) return;
     let scrollTimeout;
@@ -133,7 +125,6 @@ function PikachuSprite({ isActive, toggle }) {
     };
   }, [isActive]);
 
-  // Start phrases when idle
   useEffect(() => {
     if (animation === "idle" && !isActive) {
       startPhrases();
@@ -166,7 +157,6 @@ function PikachuSprite({ isActive, toggle }) {
     setTimeout(() => setShowText(false), 4000);
   };
 
-  // Sprite frame update
   const anim = animations[animation];
   useEffect(() => {
     const int = setInterval(
@@ -178,7 +168,6 @@ function PikachuSprite({ isActive, toggle }) {
 
   return (
     <div className="relative cursor-pointer" onClick={toggle}>
-      {/* Speech bubble */}
       <AnimatePresence>
         {showText && (
           <motion.div
@@ -195,7 +184,6 @@ function PikachuSprite({ isActive, toggle }) {
         )}
       </AnimatePresence>
 
-      {/* Pikachu sprite */}
       <div
         style={{
           width: `${anim.w}px`,
@@ -212,13 +200,12 @@ function PikachuSprite({ isActive, toggle }) {
   );
 }
 
-// Bubble menu
 function ThoughtBubbleMenu({ isOpen, onClose }) {
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="absolute bottom-24 right-40 z-40"
+          className="absolute bottom-24 right-8 sm:right-40 z-40 max-w-[90vw]"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
@@ -226,7 +213,7 @@ function ThoughtBubbleMenu({ isOpen, onClose }) {
         >
           <div className="relative bg-gradient-to-br from-pink-400/70 to-blue-400/70 
                           backdrop-blur-md border-4 border-blue-800 rounded-[50%] 
-                          p-8 shadow-2xl text-center">
+                          p-6 sm:p-8 shadow-2xl text-center">
             <Navigation onLinkClick={onClose} />
           </div>
 
@@ -242,7 +229,7 @@ export default function PikachuNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
       <div className="relative">
         <PikachuSprite
           isActive={menuOpen}
