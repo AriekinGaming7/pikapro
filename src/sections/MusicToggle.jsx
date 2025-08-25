@@ -1,0 +1,67 @@
+import { useState, useRef, useEffect } from "react";
+import { Music, Pause, VolumeX } from "lucide-react";
+import musicFile from "../assets/MUSIC.mp3"; // ✅ adjust path if needed
+
+export default function MusicToggle() {
+  const [isPlaying, setIsPlaying] = useState(true);   // autoplay on
+  const [isMuted, setIsMuted] = useState(true);       // start muted
+  const audioRef = useRef(null);
+
+  // Handle play/pause
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.play().catch(() => {
+        console.log("Autoplay blocked — waiting for user interaction.");
+        setIsPlaying(false);
+      });
+    } else {
+      audio.pause();
+    }
+  }, [isPlaying]);
+
+  // Handle first user interaction → unmute
+  useEffect(() => {
+    const handleFirstInteraction = () => {
+      if (audioRef.current) {
+        audioRef.current.muted = false;
+        setIsMuted(false);
+      }
+      document.removeEventListener("click", handleFirstInteraction);
+      document.removeEventListener("keydown", handleFirstInteraction);
+    };
+
+    document.addEventListener("click", handleFirstInteraction);
+    document.addEventListener("keydown", handleFirstInteraction);
+
+    return () => {
+      document.removeEventListener("click", handleFirstInteraction);
+      document.removeEventListener("keydown", handleFirstInteraction);
+    };
+  }, []);
+
+  return (
+    <>
+      {/* hidden audio element */}
+      <audio ref={audioRef} autoPlay loop muted>
+        <source src={musicFile} type="audio/mpeg" />
+      </audio>
+
+      {/* floating button */}
+      <button
+        onClick={() => setIsPlaying(!isPlaying)}
+        className="fixed top-6 right-6 z-50 p-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:brightness-110 transition shadow-lg"
+      >
+        {isMuted ? (
+          <VolumeX size={20} />  // 🔇 before user interaction
+        ) : isPlaying ? (
+          <Pause size={20} />    // ⏸️ when playing
+        ) : (
+          <Music size={20} />    // 🎵 when paused
+        )}
+      </button>
+    </>
+  );
+}
