@@ -1,5 +1,3 @@
-// src/constants/index.js
-
 export const myProjects = [
   {
     id: 1,
@@ -12,12 +10,12 @@ export const myProjects = [
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/accessories.jpg",
+    image: "assets/projects/accessories.jpg",
     tags: [
       {
         id: 1,
         name: "c++ Bluprints",
-        path: "/assets/logos/ue.svg",
+        path: "assets/logos/ue.svg",
       },
     ],
   },
@@ -35,27 +33,27 @@ export const myProjects = [
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/auth-system.jpg",
+    image: "assets/projects/auth-system.jpg",
     tags: [
       {
         id: 1,
         name: "filmora",
-        path: "/assets/logos/filmora.svg",
+        path: "assets/logos/filmora.svg",
       },
       {
         id: 2,
         name: "React",
-        path: "/assets/logos/react.svg",
+        path: "assets/logos/react.svg",
       },
       {
         id: 3,
         name: "Premier Pro",
-        path: "/assets/logos/pngwing.com.png",
+        path: "assets/logos/pngwing.com.png",
       },
       {
         id: 4,
         name: "TailwindCSS",
-        path: "/assets/logos/tailwindcss.svg",
+        path: "assets/logos/tailwindcss.svg",
       },
     ],
   },
@@ -78,7 +76,7 @@ export const myProjects = [
       {
         id: 1,
         name: "Naraka Bladepoint Asura",
-        path: "/assets/logos/naraka.svg",
+        path: "assets/logos/naraka.svg",
       },
     ],
   },
@@ -117,17 +115,17 @@ export const myProjects = [
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/wordpress-theme.jpg",
+    image: "assets/projects/wordpress-theme.jpg",
     tags: [
       {
         id: 1,
         name: "Aimlabs",
-        path: "/assets/logos/aimlabs.png",
+        path: "assets/logos/aimlabs.png",
       },
       {
         id: 2,
         name: "Valorant",
-        path: "/assets/logos/dotnet-pink.png",
+        path: "assets/logos/dotnet-pink.png",
       },
     ],
   },
@@ -143,17 +141,17 @@ export const myProjects = [
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/elearning.png",
+    image: "assets/projects/elearning.png",
     tags: [
       {
         id: 1,
         name: "Youtube",
-        path: "/assets/logos/youtube.png",
+        path: "assets/logos/youtube.png",
       },
       {
         id: 2,
         name: "Twitch",
-        path: "/assets/logos/efcore.png",
+        path: "assets/logos/efcore.png",
       },
     ],
   },
@@ -162,18 +160,18 @@ export const myProjects = [
 export const mySocials = [
   {
     name: "WhatsApp",
-    href: "", // add wa.me/yourNumber here
-    icon: "/assets/socials/whatsApp.svg",
+    href: "",
+    icon: "assets/socials/whatsApp.svg",
   },
   {
     name: "Linkedin",
     href: "https://www.linkedin.com/in/aryan-singh-136056349",
-    icon: "/assets/socials/linkedIn.svg",
+    icon: "assets/socials/linkedIn.svg",
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/arry95579",
-    icon: "/assets/socials/instagram.svg",
+    icon: "assets/socials/instagram.svg",
   },
 ];
 
