@@ -43,8 +43,8 @@ export default function MusicToggle() {
 
   if (typeof document === "undefined") return null;
 
-  return createPortal(
-    <>
+  return (
+    <div className="absoulute">
       <audio ref={audioRef} autoPlay loop muted>
         <source src={musicFile} type="audio/mpeg" />
       </audio>
@@ -56,15 +56,9 @@ export default function MusicToggle() {
                    bg-gradient-to-r from-purple-600 to-pink-500 
                    text-white hover:brightness-110 transition shadow-lg
                    top-4 right-4 sm:top-6 sm:right-6"
-        style={{
-          right: "calc(env(safe-area-inset-right, 0px) + 16px)",
-          top: "calc(env(safe-area-inset-top, 0px) + 16px)",
-          maxWidth: "100vw",
-        }}
       >
         {isMuted ? <VolumeX size={20} /> : isPlaying ? <Pause size={20} /> : <Music size={20} />}
       </button>
-    </>,
-    document.body
+    </div>
   );
 }

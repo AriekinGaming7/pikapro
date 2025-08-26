@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <>
-      <div className="container mx-auto max-w-7xl">
+      <div>
         <Hero />
         <About />
         <YouTubeSection />
@@ -27,10 +27,11 @@ const App = () => {
         <Testimonial />
         <Contact />
         <Footer />
+        <MusicToggle />
+        <PikachuNav onNavigate={handleNavigate} />
       </div>
 
-      <MusicToggle />
-      <PikachuNav onNavigate={handleNavigate} />
+     
     </>
   );
 };
